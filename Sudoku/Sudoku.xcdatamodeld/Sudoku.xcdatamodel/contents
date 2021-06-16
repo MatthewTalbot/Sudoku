@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BookEntity" representedClassName="BookEntity" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="bookToDifficulty" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DifficultyEntity" inverseName="difficultyToBook" inverseEntity="DifficultyEntity"/>
+    </entity>
+    <entity name="DifficultyEntity" representedClassName="DifficultyEntity" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="difficultyToBook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BookEntity" inverseName="bookToDifficulty" inverseEntity="BookEntity"/>
+        <relationship name="difficultyToPuzzle" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PuzzleEntity" inverseName="puzzleToDifficulty" inverseEntity="PuzzleEntity"/>
+    </entity>
+    <entity name="PuzzleEntity" representedClassName="PuzzleEntity" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="img" optional="YES" attributeType="Binary"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="position" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="puzzleToDifficulty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DifficultyEntity" inverseName="difficultyToPuzzle" inverseEntity="DifficultyEntity"/>
+    </entity>
+    <elements>
+        <element name="BookEntity" positionX="-416.0396118164062" positionY="-217.3822326660156" width="128" height="118"/>
+        <element name="DifficultyEntity" positionX="-209.9899291992188" positionY="-48.23394775390622" width="128" height="133"/>
+        <element name="PuzzleEntity" positionX="81.861328125" positionY="259.2167358398438" width="128" height="133"/>
+    </elements>
+</model>
